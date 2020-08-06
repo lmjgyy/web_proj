@@ -1,0 +1,23 @@
+{
+  "name": "play-plae",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build": "webpack",
+    "serve": "webpack-dev-server --open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vue/runtime-core": "^3.0.0-rc.5",
+    "pixi.js": "^5.3.3",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "devDependencies": {
+    "vue-cli-plugin-vue-next": "~0.1.3",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
