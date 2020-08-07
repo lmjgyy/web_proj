@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="../../../elementui.css">
+		<style type="text/css">
+			body{
+				color: rgba(var(--heat-cell-bgc), 1) !important;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="../../../vue.js"></script>
+		<script src="../../../elementui.js"></script>
+		<div id="app">
+			<div class="block">
+			  <span class="demonstration">无默认值</span>
+			  <el-color-picker v-model="color" @change="colorChange" color-format="rgb"></el-color-picker>
+			</div>
+		</div>
+		<script type="text/javascript">
+			const getRGB = (str) => {
+			  const match = str.match(/rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/);
+			  return match
+			    ? {
+			        red: match[1],
+			        green: match[2],
+			        blue: match[3],
+			      }
+			    : {};
+			};
+			new Vue({
+				el: '#app',
+				data () {
+					return {
+						color: null
+					}
+				},
+				methods: {
+					colorChange(color) {
+					  if (!color) color = this.defaultColor
+					  // 抽离出rgb值
+					  const { red, green, blue } = getRGB(color);
+					  const rgb = `${red},${green},${blue}`;
+					  // 找到root元素
+					  const rootElement = document.documentElement;
+					  // 更新背景色css变量
+					  rootElement.style.setProperty('--heat-cell-bgc', rgb);
+					},
+				}
+			})
+			// 掘金https://juejin.im/post/6844904094331584520
+		</script>
+	</body>
+</html>
