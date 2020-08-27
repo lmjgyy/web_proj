@@ -1,0 +1,9 @@
+body{
+  border: 1px solid gold;
+  transform: rotate(90deg);
+  -webkit-mask-clip: border;
+          mask-clip: border
+}
+body{
+  color: pink
+}
